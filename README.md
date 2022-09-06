@@ -4,7 +4,7 @@
 
 We present scEP: a method that predicts gene expression at an unprecedented resolution using single-cell RNA-sequencing data. Using this GitHub, you can reproduce the figures from the preprint **add link**, train your own models, or look at the predicted effect of interesting variants. 
 
-The results, trained models, input sequences etc. can all be downloaded from Zenodo (**add link**).
+The results, trained models, input sequences etc. can all be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.7044908).
 
 ### Code
 This folder contains the code to train your own models. Python version 3.6 or higher and PyTorch version 1.9 or higher is required for this.
