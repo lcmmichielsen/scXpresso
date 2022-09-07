@@ -1,4 +1,4 @@
-# scEP - predicting cell population-specific gene expression levels
+# scEP: predicting cell population-specific gene expression levels
 
 <img src="scEP.png" width="350" align="right">
 
