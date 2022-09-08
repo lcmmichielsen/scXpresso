@@ -2,7 +2,7 @@
 
 <img src="scEP.png" width="350" align="right">
 
-We present scEP: a method that predicts gene expression at an unprecedented resolution using single-cell RNA-sequencing data. Using this GitHub, you can reproduce the figures from the preprint **add link**, train your own models, or look at the predicted effect of interesting variants. 
+We present scEP: a method that predicts gene expression at an unprecedented resolution using single-cell RNA-sequencing data. Using this GitHub, you can reproduce the figures from the [preprint](https://www.biorxiv.org/content/10.1101/2022.09.06.506837v1), train your own models, or look at the predicted effect of interesting variants. 
 
 The results, trained models, input sequences etc. can all be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.7044908).
 
@@ -20,4 +20,6 @@ Here, we explain step-by-step how to train your own models and look at interesti
 
 ### Figures
 Contains Jupyter Notebooks to reproduce all the figures from the preprint. 
+
+For citation and further information please refer to: ["Predicting cell population-specific gene expression from genomic sequence"](https://www.biorxiv.org/content/10.1101/2022.09.06.506837v1)
 
