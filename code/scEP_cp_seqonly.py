@@ -184,8 +184,12 @@ class scEPdata(Dataset):
         print('Finished reading')
           
         all_labels = pd.read_csv(exp_fn, index_col=0)
-        train_labels = all_labels.loc[gn_train].values[:,cols]
-        labels = all_labels.loc[gn].values[:,cols]
+        if cols[0] == 'all':
+            train_labels = all_labels.loc[gn_train].values[:,1:]
+            labels = all_labels.loc[gn].values[:,1:]
+        else:
+            train_labels = all_labels.loc[gn_train].values[:,cols]
+            labels = all_labels.loc[gn].values[:,cols]
         scaler = StandardScaler()
         scaler.fit(train_labels)
         

@@ -34,7 +34,7 @@ parser.add_argument('--label_dir',      dest='label_dir',       default='/tudelf
                     help='Directory with the labels')
 parser.add_argument('--label_file',     dest='label_file',      default='logmean.csv',
                     help='Filename of the labels (pseudobulk expression values)')
-parser.add_argument('--cols',           dest='cols',            default='1,2,3',
+parser.add_argument('--cols',           dest='cols',            default='all',
                     help='Index of columns used to train the model (separated by commas)')
 parser.add_argument('--upstream',       dest='upstream',        type=int,       default=7000,
                     help='Number of nucleotides upstream of TSS')
@@ -59,11 +59,14 @@ general_dir = args.dir
 train_file = args.train_file
 label_dir = args.label_dir
 label_fn = args.label_file
-cols = np.asarray(args.cols.split(','), dtype=int)
+if args.cols != 'all':
+    cols = np.asarray(args.cols.split(','), dtype=int)
+else:
+    cols = np.array(['all'])
 upstream = args.upstream
 downstream = args.downstream
 startfold = args.startfold
-numfold = args.endfold
+numfold = args.endfold-startfold
 numgenes = args.numgenes
 output = args.output
 numruns = args.numruns
@@ -71,7 +74,10 @@ numepochs = args.numepochs
 
 # Find number of cell pop. in the data
 os.chdir(label_dir)
-num_ct = len(cols)
+if cols[0] == 'all':
+    num_ct = np.shape(pd.read_csv(label_fn, index_col=0))[1]-1
+else:
+    num_ct = len(cols)
 
 # 20 fold CV
 idx_all = np.arange(0,numgenes)
