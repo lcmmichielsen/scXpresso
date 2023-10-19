@@ -52,6 +52,8 @@ parser.add_argument('--numruns',        dest='numruns',         type=int,       
                     help='Number of models trained')
 parser.add_argument('--numepochs',      dest='numepochs',       type=int,       default=40,
                     help='Number of epochs to train the model')
+parser.add_argument('--batchsize',      dest='batchsize',       type=int,       default=128,
+                    help='Batch size for training data')
 
 args = parser.parse_args()
 
@@ -71,6 +73,7 @@ numgenes = args.numgenes
 output = args.output
 numruns = args.numruns
 numepochs = args.numepochs
+batchsize = args.batchsize
 
 # Find number of cell pop. in the data
 os.chdir(label_dir)
@@ -98,7 +101,7 @@ for train_val_idx, idx_test in kf.split(idx_all):
         fn_train = general_dir + args.train_file
         train_set = scEPdata(fn_train, label_fn, cols, idx_train, idx_train,
                              upstream=upstream, downstream=downstream)
-        train_loader = DataLoader(train_set, batch_size=128, shuffle=True)
+        train_loader = DataLoader(train_set, batch_size=batchsize, shuffle=True)
         train_loader_eval = DataLoader(train_set, batch_size=1, shuffle=False)
         
         val_set = scEPdata(fn_train, label_fn, cols, idx_val, idx_train,

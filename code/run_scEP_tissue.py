@@ -60,6 +60,7 @@ train_file = args.train_file
 label_dir = args.label_dir
 label_fn = args.label_file
 col = args.col
+print(col)
 upstream = args.upstream
 downstream = args.downstream
 startfold = args.startfold
